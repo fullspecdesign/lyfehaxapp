@@ -1,0 +1,420 @@
+/* ===================== */
+/* Global Styles         */
+/* ===================== */
+:root {
+  --primary-color: #AA5486;
+  --accent-color: #FC8F54;
+  --background-color: #FBF4DB;
+  --text-color: #333;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .App {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode header {
+  background-color: #333;
+}
+
+body.dark-mode .results-container,
+body.dark-mode .saved-lifehacks-container {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .result-card,
+body.dark-mode .saved-lifehack-card {
+  background-color: #444;
+  color: #ffffff;
+}
+
+body.dark-mode .search-bar input,
+body.dark-mode .categories button {
+  background-color: #555;
+  color: #ffffff;
+  border-color: #666;
+}
+
+body.dark-mode .search-bar button {
+  background-color: #666;
+  color: #ffffff;
+}
+
+body.dark-mode .save-button,
+body.dark-mode .share-button,
+body.dark-mode .remove-button {
+  background-color: #666;
+  color: #ffffff;
+}
+
+body.dark-mode .save-button:hover,
+body.dark-mode .share-button:hover,
+body.dark-mode .remove-button:hover {
+  background-color: #777;
+}
+
+/* ===================== */
+/* App Layout            */
+/* ===================== */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===================== */
+/* Header                */
+/* ===================== */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  font-size: 1.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .header-content {
+  text-align: left;
+}
+
+header .tagline {
+  font-size: 1rem;
+  margin: 0;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--primary-color);
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: var(--accent-color);
+}
+
+/* ===================== */
+/* Main Content          */
+/* ===================== */
+main {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+/* ===================== */
+/* Search Bar            */
+/* ===================== */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar input {
+  width: 50%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--accent-color);
+}
+
+.search-bar button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: var(--accent-color);
+}
+
+/* ===================== */
+/* Categories            */
+/* ===================== */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.categories button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #FDE7BB;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.categories button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Category Hint */
+.category-hint {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+body.dark-mode .category-hint {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===================== */
+/* Results Section       */
+/* ===================== */
+.results-container {
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 20px;
+  background: #FDE7BB;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results-container ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-card {
+  padding: 15px;
+  margin-bottom: 15px;
+  background: white;
+  color: var(--text-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.result-card p {
+  white-space: pre-line; /* Preserve line breaks in the response */
+  text-align: left; /* Align text to the left for better readability */
+}
+
+.result-card:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+
+/* Loading Indicator */
+p.loading {
+  color: var(--primary-color);
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* ===================== */
+/* Saved Lifehacks       */
+/* ===================== */
+.saved-lifehacks-container {
+  margin-top: 30px;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.saved-lifehacks-container h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.saved-lifehacks-list {
+  display: grid;
+  gap: 20px;
+}
+
+.saved-lifehack-card {
+  padding: 15px;
+  background: #FDE7BB;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.saved-lifehack-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lifehack-content p {
+  margin: 5px 0;
+}
+
+.saved-lifehack-card strong {
+  color: var(--primary-color);
+}
+
+/* ===================== */
+/* Buttons               */
+/* ===================== */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-button,
+.share-button,
+.remove-button {
+  padding: 8px 12px;
+  font-size: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover,
+.share-button:hover,
+.remove-button:hover {
+  background-color: var(--accent-color);
+}
+
+/* ===================== */
+/* Social Buttons        */
+/* ===================== */
+.social-button {
+  padding: 8px 12px;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.social-button.twitter {
+  background-color: #1DA1F2;
+  color: white;
+}
+
+.social-button.twitter:hover {
+  background-color: #0d95e8;
+}
+
+.social-button.facebook {
+  background-color: #1877F2;
+  color: white;
+}
+
+.social-button.facebook:hover {
+  background-color: #145dbf;
+}
+
+.social-button.linkedin {
+  background-color: #0077B5;
+  color: white;
+}
+
+.social-button.linkedin:hover {
+  background-color: #005983;
+}
+
+/* ===================== */
+/* Footer                */
+/* ===================== */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 15px;
+}
+
+body.dark-mode footer {
+  background-color: #333;
+}
+
+/* ===================== */
+/* Responsive Design     */
+/* ===================== */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 80%;
+  }
+
+  .categories button {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  .results-container {
+    padding: 15px;
+  }
+}
