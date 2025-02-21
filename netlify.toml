@@ -5,3 +5,7 @@
 
 [dev]
   functions = "functions"
+
+  [functions]
+  timeout = 26
+
