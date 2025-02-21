@@ -22,7 +22,7 @@ exports.handler = async (event) => {
                     },
                     { role: 'user', content: `Give me lifehacks for: ${query}` },
                 ],
-                max_tokens: 700,
+                max_tokens: 400,
                 temperature: 0.7,
             },
             {
