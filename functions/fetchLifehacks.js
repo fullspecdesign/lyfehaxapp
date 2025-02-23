@@ -27,9 +27,9 @@ exports.handler = async (event) => {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: 'gpt-4',
+                model: 'gpt-o1',
                 messages: [
-                    { role: 'system', content: "You are a helpful assistant providing lifehacks. When given a problem, provide 3 detailed and structured lifehacks to solve it. Each lifehack should include: 1. A clear title or description of the solution. 2. Step-by-step instructions given as bullet points. 3. Any necessary materials or tools. Format the response as a numbered list for clarity." },
+                    { role: 'system', content: "You are a helpful assistant providing lifehacks. When given a problem, provide 2 detailed and structured lifehacks to solve it. Each lifehack should include: 1. A clear title or description of the solution. 2. Step-by-step instructions given as bullet points. 3. Any necessary materials or tools. Format the response as a numbered list for clarity." },
                     { role: 'user', content: `Give me lifehacks for: ${query}` }
                 ],
                 max_tokens: 250,
