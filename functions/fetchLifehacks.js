@@ -32,8 +32,8 @@ exports.handler = async (event) => {
                     { role: 'system', content: "You are a helpful assistant providing lifehacks. When given a problem, provide 3 detailed and structured lifehacks to solve it. Each lifehack should include: 1. A clear title or description of the solution. 2. Step-by-step instructions given as bullet points. 3. Any necessary materials or tools. Format the response as a numbered list for clarity." },
                     { role: 'user', content: `Give me lifehacks for: ${query}` }
                 ],
-                max_tokens: 700,
-                temperature: 0.7,
+                max_tokens: 250,
+                temperature: 0.5,
             },
             {
                 headers: {
