@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchBar from "./SearchBar";
 import Results from "./Results";
 import SavedLifehacks from "./SavedLifehacks";
+import ReactGA from "react-ga4";
 
 function App() {
   const [results, setResults] = useState([]);
@@ -35,27 +36,32 @@ function App() {
     if (storedLifehacks) {
       setSavedLifehacks(JSON.parse(storedLifehacks));
     }
+    ReactGA.initialize("G-NHFP97RWWK"); // Replace with your Measurement ID
+    ReactGA.send("pageview"); // Tracks page visits
   }, []);
 
   const fetchLifehacks = async (query) => {
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-        // Call the Netlify Function instead of OpenAI directly
-        const response = await axios.post('/.netlify/functions/fetchLifehacks', { query });
+      // Call the Netlify Function instead of OpenAI directly
+      const response = await axios.post("/.netlify/functions/fetchLifehacks", {
+        query,
+      });
 
-        if (response.data.lifehacks) {
-            setResults(response.data.lifehacks);
-        }
+      if (response.data.lifehacks) {
+        setResults(response.data.lifehacks);
+      }
     } catch (error) {
-        console.error('Error fetching lifehacks:', error);
-        setError('Failed to fetch lifehacks. Please check your connection and try again.');
+      console.error("Error fetching lifehacks:", error);
+      setError(
+        "Failed to fetch lifehacks. Please check your connection and try again."
+      );
     }
 
     setLoading(false);
-};
-
+  };
 
   // Handle search queries
   const handleSearch = (query) => {
